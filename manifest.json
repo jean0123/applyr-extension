@@ -1,0 +1,61 @@
+{
+  "manifest_version": 3,
+  "name": "Applyr",
+  "version": "1.0.0",
+  "description": "Automatically tailor your resume to job postings and auto-fill applications on Indeed and LinkedIn.",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "tabs",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://ca.indeed.com/*",
+    "https://indeed.com/*",
+    "https://*.indeed.com/*",
+    "https://www.linkedin.com/*",
+    "https://api.anthropic.com/*",
+    "https://api.openai.com/*",
+    "https://generativelanguage.googleapis.com/*"
+  ],
+  "background": {
+    "service_worker": "background/background.js"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "Applyr – Tailor & Apply",
+    "default_icon": {
+      "16": "assets/icon16.png",
+      "48": "assets/icon48.png",
+      "128": "assets/icon128.png"
+    }
+  },
+  "options_page": "options/options.html",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://ca.indeed.com/*",
+        "https://indeed.com/*",
+        "https://*.indeed.com/*",
+        "https://www.linkedin.com/jobs/*"
+      ],
+      "js": [
+        "lib/storage.js",
+        "lib/pdf-generator.js",
+        "content/indeed-handler.js",
+        "content/linkedin-handler.js",
+        "content/content.js"
+      ],
+      "css": ["content/content.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+    "16": "assets/icon16.png",
+    "48": "assets/icon48.png",
+    "128": "assets/icon128.png"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}

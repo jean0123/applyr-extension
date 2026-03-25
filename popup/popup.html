@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Applyr</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="popup-header">
+    <div class="header-logo">A</div>
+    <div class="header-info">
+      <div class="header-title">Applyr</div>
+      <div class="header-subtitle">AI resume tailoring &amp; auto-apply</div>
+    </div>
+    <button class="header-settings-btn" id="btn-open-settings" title="Open Settings">⚙</button>
+  </header>
+
+  <!-- Main -->
+  <main class="popup-main" id="popup-main">
+
+    <!-- Status bar -->
+    <div class="status-bar" id="status-bar">
+      <div class="status-indicator partial" id="status-dot"></div>
+      <div class="status-text">
+        <strong id="status-title">Checking…</strong>
+        <span id="status-desc">Loading extension status</span>
+      </div>
+    </div>
+
+    <!-- Resume Upload -->
+    <div>
+      <p class="section-label">Your Resume</p>
+      <div id="cv-section">
+        <!-- Filled dynamically by popup.js -->
+        <div class="loading-overlay">
+          <div class="mini-spinner"></div>
+          Loading…
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- AI Provider -->
+    <div>
+      <p class="section-label">AI Provider</p>
+      <div class="provider-grid">
+        <label class="provider-option">
+          <input type="radio" name="provider" value="claude" />
+          <div class="provider-card">
+            <span class="provider-emoji">🤖</span>
+            Claude
+          </div>
+        </label>
+        <label class="provider-option">
+          <input type="radio" name="provider" value="openai" />
+          <div class="provider-card">
+            <span class="provider-emoji">💬</span>
+            ChatGPT
+          </div>
+        </label>
+        <label class="provider-option">
+          <input type="radio" name="provider" value="gemini" />
+          <div class="provider-card">
+            <span class="provider-emoji">✨</span>
+            Gemini
+          </div>
+        </label>
+      </div>
+
+      <div style="margin-top:10px;">
+        <div class="input-group">
+          <input
+            type="password"
+            class="input-field"
+            id="api-key-input"
+            placeholder="Paste your API key here"
+            autocomplete="off"
+            spellcheck="false"
+          />
+          <button class="input-action-btn" id="btn-save-key">Save</button>
+        </div>
+        <p class="inline-note" id="api-key-note">
+          Your API key is encrypted and stored locally. It never leaves your device except for API calls.
+        </p>
+      </div>
+    </div>
+
+    <!-- Support Banner -->
+    <div class="applyr-coffee-section">
+      <span class="applyr-coffee-icon">☕</span>
+      <span class="applyr-coffee-text">Enjoy <strong>Applyr</strong>?</span>
+      <button class="applyr-coffee-btn" id="btn-coffee-once">Buy me a coffee</button>
+      <button class="applyr-coffee-btn applyr-coffee-btn--monthly" id="btn-coffee-monthly">Monthly ♥</button>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Application History -->
+    <div>
+      <p class="section-label">Recent Applications</p>
+      <div id="history-section">
+        <div class="loading-overlay">
+          <div class="mini-spinner"></div>
+          Loading…
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="popup-footer">
+    <button class="footer-link" id="btn-open-settings-footer">⚙ Settings</button>
+    <span style="color:rgba(255,255,255,0.12)">·</span>
+    <button class="footer-link" id="btn-clear-history">Clear history</button>
+    <span style="color:rgba(255,255,255,0.12)">·</span>
+    <span class="footer-link" style="cursor:default">v1.0.0</span>
+  </footer>
+
+  <!-- Toast -->
+  <div id="popup-toast"></div>
+
+  <!-- Scripts -->
+  <script src="../lib/storage.js"></script>
+  <script src="../lib/cv-parser.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

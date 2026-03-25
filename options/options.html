@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Applyr Settings</title>
+  <link rel="stylesheet" href="options.css" />
+</head>
+<body>
+
+<div class="layout">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-logo-row">
+        <div class="sidebar-logo">A</div>
+        <div>
+          <div class="sidebar-brand">Applyr</div>
+          <div class="sidebar-version">v1.0.0</div>
+        </div>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav" id="sidebar-nav">
+      <button class="nav-item active" data-section="profile">
+        <span class="nav-icon">👤</span> Profile
+      </button>
+      <button class="nav-item" data-section="ai">
+        <span class="nav-icon">🤖</span> AI Configuration
+      </button>
+      <button class="nav-item" data-section="resume">
+        <span class="nav-icon">📄</span> Resume
+      </button>
+      <button class="nav-item" data-section="preferences">
+        <span class="nav-icon">⚙</span> Preferences
+      </button>
+      <button class="nav-item" data-section="subscription">
+        <span class="nav-icon">☕</span> Support
+      </button>
+      <button class="nav-item" data-section="history">
+        <span class="nav-icon">📋</span> History
+      </button>
+      <button class="nav-item" data-section="data">
+        <span class="nav-icon">💾</span> Data &amp; Privacy
+      </button>
+    </nav>
+
+    <div class="sidebar-footer">
+      Applyr &copy; 2026<br>
+      <a href="#" style="color:var(--primary);text-decoration:none;" id="link-help">Help &amp; Support</a>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <main class="main-content">
+
+    <!-- ======= Profile ======= -->
+    <section class="page-section active" id="section-profile">
+      <h1 class="page-title">Profile</h1>
+      <p class="page-desc">Your personal details for auto-filling application forms.</p>
+
+      <div class="card">
+        <h2 class="card-title"><span class="card-title-icon">👤</span> Personal Information</h2>
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label" for="profile-name">Full Name</label>
+            <input type="text" class="form-input" id="profile-name" placeholder="Jane Smith" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="profile-email">Email Address</label>
+            <input type="email" class="form-input" id="profile-email" placeholder="jane@example.com" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="profile-phone">Phone Number</label>
+            <input type="tel" class="form-input" id="profile-phone" placeholder="+1 (555) 000-0000" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="profile-location">Location</label>
+            <input type="text" class="form-input" id="profile-location" placeholder="Toronto, ON" />
+          </div>
+          <div class="form-group span-2">
+            <label class="form-label" for="profile-linkedin">LinkedIn URL</label>
+            <input type="url" class="form-input" id="profile-linkedin" placeholder="https://linkedin.com/in/janesmith" />
+          </div>
+          <div class="form-group span-2">
+            <label class="form-label" for="profile-website">Personal Website / Portfolio</label>
+            <input type="url" class="form-input" id="profile-website" placeholder="https://janesmith.dev" />
+          </div>
+        </div>
+        <div style="margin-top:18px;">
+          <button class="btn btn-primary" id="btn-save-profile">Save Profile</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= AI Configuration ======= -->
+    <section class="page-section" id="section-ai">
+      <h1 class="page-title">AI Configuration</h1>
+      <p class="page-desc">Choose your AI provider and configure your API key.</p>
+
+      <div class="card">
+        <h2 class="card-title"><span class="card-title-icon">🤖</span> Select AI Provider</h2>
+        <div class="provider-grid-options" id="ai-provider-grid">
+          <label class="provider-card-opt selected" data-value="claude">
+            <span class="emoji">🤖</span>
+            <div class="name">Claude</div>
+            <div class="model">claude-sonnet-4-6</div>
+          </label>
+          <label class="provider-card-opt" data-value="openai">
+            <span class="emoji">💬</span>
+            <div class="name">ChatGPT</div>
+            <div class="model">gpt-4o</div>
+          </label>
+          <label class="provider-card-opt" data-value="gemini">
+            <span class="emoji">✨</span>
+            <div class="name">Gemini</div>
+            <div class="model">gemini-1.5-flash</div>
+          </label>
+        </div>
+
+        <div class="form-group" style="margin-top:4px;">
+          <label class="form-label" for="ai-api-key" id="ai-key-label">Claude API Key</label>
+          <div class="api-key-row">
+            <input type="password" class="form-input password-field" id="ai-api-key"
+                   placeholder="sk-ant-..." autocomplete="off" spellcheck="false" />
+            <button class="btn btn-primary btn-sm" id="btn-save-ai-key">Save</button>
+            <button class="btn btn-secondary btn-sm" id="btn-clear-ai-key">Clear</button>
+          </div>
+          <p style="font-size:12px;color:var(--gray-500);margin-top:6px;" id="ai-key-status">
+            Your key is AES-256 encrypted and stored locally in Chrome. It is only sent directly to the AI provider's API.
+          </p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 class="card-title"><span class="card-title-icon">🔗</span> Get an API Key</h2>
+        <div style="display:flex;flex-direction:column;gap:10px;font-size:13.5px;color:var(--gray-600);line-height:1.6;">
+          <p><strong>Claude (Recommended):</strong> Visit <span style="color:var(--primary)">console.anthropic.com</span> → API Keys → Create Key. Start with the free tier.</p>
+          <p><strong>ChatGPT:</strong> Visit <span style="color:var(--primary)">platform.openai.com</span> → API keys → Create new secret key. Requires billing setup.</p>
+          <p><strong>Gemini:</strong> Visit <span style="color:var(--primary)">aistudio.google.com</span> → Get API key. Free tier available.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= Resume ======= -->
+    <section class="page-section" id="section-resume">
+      <h1 class="page-title">Resume</h1>
+      <p class="page-desc">Upload your base resume — Applyr tailors it for each job.</p>
+
+      <div class="resume-two-col">
+
+        <div class="card">
+          <h2 class="card-title"><span class="card-title-icon">📄</span> Your Resume</h2>
+
+          <!-- Dynamic: shows upload zone OR loaded state -->
+          <div id="options-cv-section">
+            <!-- Upload zone (shown when no resume) -->
+            <div class="opt-dropzone" id="opt-dropzone">
+              <input type="file" id="opt-cv-file-input" accept=".pdf,.txt" />
+              <div class="opt-dropzone-icon">📂</div>
+              <div class="opt-dropzone-title">Drop here or <span class="opt-browse-link">browse</span></div>
+              <div class="opt-dropzone-sub">PDF or TXT · max 5 MB</div>
+            </div>
+            <p class="opt-upload-status" id="opt-upload-status"></p>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2 class="card-title"><span class="card-title-icon">📝</span> Paste Text</h2>
+          <p style="font-size:12px;color:var(--text-3);margin-bottom:8px;line-height:1.5;">
+            If your PDF isn't parsing correctly, paste your resume text directly.
+          </p>
+          <textarea
+            id="cv-text-input"
+            class="form-input"
+            rows="6"
+            placeholder="Paste your full resume text here…"
+            style="resize:vertical;font-size:13px;line-height:1.5;font-family:var(--font);width:100%;"
+          ></textarea>
+          <div style="margin-top:10px;display:flex;gap:8px;">
+            <button class="btn btn-primary btn-sm" id="btn-save-cv-text">Save</button>
+            <button class="btn btn-secondary btn-sm" id="btn-clear-cv-text">Clear</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======= Preferences ======= -->
+    <section class="page-section" id="section-preferences">
+      <h1 class="page-title">Preferences</h1>
+      <p class="page-desc">Customize how Applyr behaves.</p>
+
+      <div class="card">
+        <h2 class="card-title"><span class="card-title-icon">⚙</span> Application Settings</h2>
+
+        <div class="toggle-row">
+          <div>
+            <div class="toggle-label">Show preview before applying</div>
+            <div class="toggle-sublabel">Review AI changes before auto-filling the application</div>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" id="pref-show-preview" checked />
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+
+        <div class="toggle-row">
+          <div>
+            <div class="toggle-label">Auto-upload resume</div>
+            <div class="toggle-sublabel">Automatically upload your tailored resume to the application form</div>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" id="pref-auto-upload" checked />
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+
+        <div class="toggle-row">
+          <div>
+            <div class="toggle-label">Desktop notifications</div>
+            <div class="toggle-sublabel">Get notified when tailoring is complete</div>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" id="pref-notifications" checked />
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+
+        <div class="toggle-row">
+          <div>
+            <div class="toggle-label">Save application history</div>
+            <div class="toggle-sublabel">Keep a log of jobs you've applied to</div>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" id="pref-history" checked />
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+      </div>
+
+      <div style="margin-top:4px;">
+        <button class="btn btn-primary" id="btn-save-prefs">Save Preferences</button>
+      </div>
+    </section>
+
+    <!-- ======= Support ======= -->
+    <section class="page-section" id="section-subscription">
+      <h1 class="page-title">Support Applyr</h1>
+      <p class="page-desc">Applyr is free and open. If you find it helpful, consider supporting the project.</p>
+
+      <div class="sub-card">
+        <div class="sub-card-icon">☕</div>
+        <div class="sub-card-info">
+          <div class="sub-card-title">Buy me a coffee</div>
+          <p class="sub-card-desc">
+            Applyr is built and maintained by an indie developer. Your support helps keep the project alive, fund new features, and cover development costs.
+          </p>
+          <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap;">
+            <button class="btn btn-primary" id="btn-coffee-once-opts">☕ One-time coffee</button>
+            <button class="btn btn-secondary" id="btn-coffee-monthly-opts">♥ Monthly support</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 class="card-title"><span class="card-title-icon">💡</span> Why support?</h2>
+        <ul style="font-size:13.5px;color:var(--gray-600);line-height:2;padding-left:18px;">
+          <li>Applyr is 100% free — no paywalls, no limits</li>
+          <li>Your API keys stay on your device — we never see them</li>
+          <li>Your support funds new features and bug fixes</li>
+          <li>Help keep Applyr independent and ad-free</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ======= History ======= -->
+    <section class="page-section" id="section-history">
+      <h1 class="page-title">Application History</h1>
+      <p class="page-desc">A log of jobs you've tailored your resume for.</p>
+
+      <div class="card" style="padding:0;overflow:hidden;">
+        <div id="history-table-container" style="padding:20px 24px;">
+          <p style="color:var(--gray-500);font-size:13.5px;">Loading history…</p>
+        </div>
+      </div>
+
+      <div style="margin-top:12px;">
+        <button class="btn btn-danger" id="btn-clear-history-options">Clear All History</button>
+      </div>
+    </section>
+
+    <!-- ======= Data & Privacy ======= -->
+    <section class="page-section" id="section-data">
+      <h1 class="page-title">Data &amp; Privacy</h1>
+      <p class="page-desc">Manage your stored data and privacy settings.</p>
+
+      <div class="card">
+        <h2 class="card-title"><span class="card-title-icon">🔒</span> Privacy</h2>
+        <p style="font-size:13.5px;color:var(--gray-600);line-height:1.6;margin-bottom:12px;">
+          Applyr stores all data locally in Chrome's encrypted storage. Your API keys are encrypted using AES-256-GCM.
+          Resume text and profile data are never sent to Applyr's servers — only to the AI provider you choose.
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;font-size:13px;color:var(--gray-500);">
+          <span>✓ No account required</span>
+          <span>·</span>
+          <span>✓ No data collection</span>
+          <span>·</span>
+          <span>✓ Local-first</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 class="card-title"><span class="card-title-icon">💾</span> Data Management</h2>
+
+        <div class="data-action-row">
+          <div>
+            <div class="data-action-label">Export Settings</div>
+            <div class="data-action-sub">Download your preferences and profile as JSON</div>
+          </div>
+          <button class="btn btn-secondary btn-sm" id="btn-export-data">Export</button>
+        </div>
+
+        <div class="data-action-row">
+          <div>
+            <div class="data-action-label">Import Settings</div>
+            <div class="data-action-sub">Restore from a previously exported file</div>
+          </div>
+          <button class="btn btn-secondary btn-sm" id="btn-import-data">Import</button>
+          <input type="file" id="import-file-input" accept=".json" style="display:none;" />
+        </div>
+
+        <div class="data-action-row">
+          <div>
+            <div class="data-action-label">Clear Resume</div>
+            <div class="data-action-sub">Remove stored resume text</div>
+          </div>
+          <button class="btn btn-danger btn-sm" id="btn-clear-resume">Clear</button>
+        </div>
+
+        <div class="data-action-row">
+          <div>
+            <div class="data-action-label">Clear All API Keys</div>
+            <div class="data-action-sub">Remove all stored API keys</div>
+          </div>
+          <button class="btn btn-danger btn-sm" id="btn-clear-keys">Clear Keys</button>
+        </div>
+
+        <div class="data-action-row">
+          <div>
+            <div class="data-action-label">Reset Everything</div>
+            <div class="data-action-sub">Delete all Applyr data from this browser</div>
+          </div>
+          <button class="btn btn-danger btn-sm" id="btn-reset-all">Reset All</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- Toast -->
+<div id="options-toast"></div>
+
+<!-- Scripts -->
+<script src="../lib/storage.js"></script>
+<script src="../lib/cv-parser.js"></script>
+<script src="options.js"></script>
+</body>
+</html>
