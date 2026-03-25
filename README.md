@@ -36,7 +36,7 @@ Applyr sends your resume and the job description to your chosen AI provider, whi
 
 | Tailoring in progress | Tailored result |
 |-----------------------|-----------------|
-| ![Tailoring](screenshots/charging.png) | ![Done LinkedIn](screenshots/done-linkedin.png) |
+| ![Tailoring](screenshots/loading.png) | ![Done LinkedIn](screenshots/done-linkedin.png) |
 
 ### 3. Download & Apply
 
@@ -68,29 +68,37 @@ git clone https://github.com/jean0123/applyr-extension.git
 
 ## Setup
 
-Open the settings page to configure your profile, AI provider, and resume.
+### 1. Fill your profile
+
+Open the settings page and add your personal details for auto-filling application forms.
 
 <p align="center">
-  <img src="screenshots/conf-extend.png" alt="Applyr Settings" width="700" />
+  <img src="screenshots/conf-extend.png" alt="Applyr Profile Settings" width="700" />
 </p>
 
-### Upload Your Resume
+### 2. Configure your AI provider
 
-1. Click the **Applyr icon** in your Chrome toolbar to open the popup
-2. In the **"Your Resume"** section, drag & drop your PDF resume, or click to browse
-3. Applyr extracts and stores the text locally
+Select Claude, ChatGPT, or Gemini and paste your API key. Your key is AES-256-GCM encrypted and stored locally.
 
-**Alternative:** Go to **Settings > Resume** and paste your resume text directly (useful if your PDF doesn't parse correctly).
+<p align="center">
+  <img src="screenshots/ai config.png" alt="AI Configuration" width="700" />
+</p>
 
-### Configure Your AI Provider
+### 3. Upload your resume
 
-1. In the popup (or **Settings > AI Configuration**), select your AI provider:
-   - **Claude** (Recommended) — API key from [console.anthropic.com](https://console.anthropic.com)
-   - **ChatGPT** — API key from [platform.openai.com](https://platform.openai.com)
-   - **Gemini** — API key from [aistudio.google.com](https://aistudio.google.com)
-2. Paste your API key into the field and click **Save**
+Drag & drop your PDF or paste your resume text directly. Applyr extracts and stores it locally.
 
-Your API key is encrypted using AES-256-GCM and stored only in Chrome's local storage.
+<p align="center">
+  <img src="screenshots/resume.png" alt="Resume Upload" width="700" />
+</p>
+
+### Data & Privacy
+
+All your data stays on your device. Export, import, or reset everything from the privacy settings.
+
+<p align="center">
+  <img src="screenshots/privacy.png" alt="Data & Privacy" width="700" />
+</p>
 
 ---
 
