@@ -68,6 +68,12 @@ git clone https://github.com/jean0123/applyr-extension.git
 
 ## Setup
 
+Open the settings page to configure your profile, AI provider, and resume.
+
+<p align="center">
+  <img src="screenshots/conf-extend.png" alt="Applyr Settings" width="700" />
+</p>
+
 ### Upload Your Resume
 
 1. Click the **Applyr icon** in your Chrome toolbar to open the popup
