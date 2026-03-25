@@ -172,10 +172,14 @@
     return new Blob([arr], { type: mime });
   }
 
+  function shortFileName(company, jobTitle) {
+    const c = (company || 'company').replace(/[^a-zA-Z0-9]/g, '_').slice(0, 15).replace(/_+$/, '');
+    const t = (jobTitle || 'job').replace(/[^a-zA-Z0-9]/g, '_').slice(0, 15).replace(/_+$/, '');
+    return `CV_${c}_${t}.pdf`;
+  }
+
   async function autoUploadResume(pdfBlob, jobTitle, company) {
-    const safeName = (company || 'company').replace(/[^a-zA-Z0-9]/g, '_');
-    const safeTitle = (jobTitle || 'job').replace(/[^a-zA-Z0-9]/g, '_');
-    const fileName = `Resume_${safeName}_${safeTitle}.pdf`;
+    const fileName = shortFileName(company, jobTitle);
 
     // Update panel to show upload progress
     setBody(`
@@ -335,7 +339,7 @@
 
       ${hasPdf ? `
         <div>
-          <a style="display:inline-flex;align-items:center;gap:6px;color:#7C3AED;font-weight:600;font-size:13px;text-decoration:none;" href="${downloadUrl}" download="Resume_${(company || 'company').replace(/[^a-zA-Z0-9]/g, '_')}_${(jobTitle || 'job').replace(/[^a-zA-Z0-9]/g, '_')}.pdf" id="applyr-download-link">
+          <a style="display:inline-flex;align-items:center;gap:6px;color:#7C3AED;font-weight:600;font-size:13px;text-decoration:none;" href="${downloadUrl}" download="${shortFileName(company, jobTitle)}" id="applyr-download-link">
             ↓ Download tailored resume PDF
           </a>
         </div>` : ''}
@@ -666,7 +670,7 @@
 
       ${hasPdf ? `
         <div>
-          <a class="applyr-download-link" href="${downloadUrl}" download="resume_tailored_${Date.now()}.pdf" id="applyr-download-link">
+          <a class="applyr-download-link" href="${downloadUrl}" download="${shortFileName(company, jobTitle)}" id="applyr-download-link">
             ↓ Download tailored resume PDF
           </a>
         </div>` : ''}
@@ -693,9 +697,7 @@
     try {
       // Auto-download the tailored PDF
       if (tailoredPdfBlob) {
-        const safeName = (company || 'company').replace(/[^a-zA-Z0-9]/g, '_');
-        const safeTitle = (jobTitle || 'job').replace(/[^a-zA-Z0-9]/g, '_');
-        const fileName = `Resume_${safeName}_${safeTitle}.pdf`;
+        const fileName = shortFileName(company, jobTitle);
         const url = URL.createObjectURL(tailoredPdfBlob);
         const a = document.createElement('a');
         a.href = url;
