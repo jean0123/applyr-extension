@@ -1,13 +1,12 @@
 {
   "manifest_version": 3,
   "name": "Applyr",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Automatically tailor your resume to job postings and auto-fill applications on Indeed and LinkedIn.",
   "permissions": [
     "storage",
     "activeTab",
-    "tabs",
-    "scripting"
+    "tabs"
   ],
   "host_permissions": [
     "https://ca.indeed.com/*",

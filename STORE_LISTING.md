@@ -42,9 +42,7 @@ Applyr stores all data locally in your browser. Your API keys are encrypted with
 
 ### Pricing
 
-**Free Tier** -- Bring your own API key and use Applyr at no cost. You pay only for the AI usage through your own provider account.
-
-**Paid Tier** -- Coming soon. A managed option with built-in AI access so you do not need your own API key, plus additional premium features.
+**Completely free.** Bring your own API key and use Applyr at no cost. You only pay for the AI usage through your own provider account. If you enjoy Applyr, you can optionally support the project by buying the developer a coffee.
 
 ### Who Is This For?
 
